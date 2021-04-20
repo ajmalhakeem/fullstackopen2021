@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 
-const Button = ({handleClick}) => {
+const Button = ({handleClick, text}) => {
   return(
     <button onClick={handleClick}>
-      next anecdote
+      {text}
     </button>
   )
 }
@@ -17,8 +17,10 @@ const App = () => {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
   ]
-   
+
+  const votes = new Array(anecdotes.length).fill(0)
   const [selected, setSelected] = useState(0)
+  const [selectedVote, setSelectedVote] = useState(0)
 
   const handleNext = () => {
     const min = 0
@@ -28,12 +30,21 @@ const App = () => {
     setSelected(rand)
   }
 
+  const handleVote = () => {
+    const newVotes = [...votes]
+    newVotes[selected] += 1
+    console.log(newVotes[selected])
+    setSelectedVote(newVotes)
+  }
+
   return (
     <div>
       <div>
-        {anecdotes[selected]}
+        <p>{anecdotes[selected]}</p>
       </div>
-      <Button handleClick={handleNext}></Button>
+      <p>has {votes[selected]} votes</p>
+      <Button handleClick={handleVote} text="vote"></Button>
+      <Button handleClick={handleNext} text="next anecdote"></Button>
     </div>
   )
 }

@@ -22,7 +22,7 @@ Each **part** submission has directories that contains: each exercise submission
 * exercise 1.10 ✓ *20 April 2021*
 * exercise 1.11 ✓ *20 April 2021*
 * exercise 1.12 ✓ *20 April 2021*
-* exercise 1.13
+* exercise 1.13 ✓ *20 April 2021*
 * exercise 1.14
 
 ## part 2

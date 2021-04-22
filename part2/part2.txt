@@ -1,0 +1,1 @@
+Since part 2 has multiple components I won't be splitting the exercises in directories anymore. Instead to view each exercise from 2.3 onwards will have to iterate through each commit. Thanks.

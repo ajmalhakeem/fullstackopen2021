@@ -4,12 +4,12 @@ import Content from './Content'
 import Total from './Total'
 
 
-const Course = (courses) => {    
+const Course = ({courses}) => {    
     return (
         <div>
-            <Header head={courses.courses}></Header>
-            <Content content={courses.courses}></Content>
-            <Total total={courses.courses}></Total>
+            <Header course={courses}></Header>
+            <Content course={courses}></Content>
+            <Total total={courses}></Total>
         </div>
     )
 }

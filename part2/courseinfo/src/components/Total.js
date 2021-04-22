@@ -6,7 +6,7 @@ const Total = (total) => {
     
     return (
       <div>
-        <p>Total number of exercises {exercisesArray.reduce(reducer)}</p>
+        <p><b>Total number of exercises = {exercisesArray.reduce(reducer)}</b></p>
       </div>
     )
 }

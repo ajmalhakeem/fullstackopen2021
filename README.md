@@ -2,40 +2,100 @@
 Each **part** submission has directories that contains: each exercise submission, as well as the full code for each part.  
 
 ## [part 0](https://github.com/ajmlhkm/fullstackopen2021/tree/main/part0)
-* exercise 0.1 ✓ *8 April 2021*
-* exercise 0.2 ✓ *8 April 2021*
-* exercise 0.3 ✓ *8 April 2021*
-* exercise 0.4 ✓ *8 April 2021*
-* exercise 0.5 ✓ *8 April 2021*
-* exercise 0.6 ✓ *8 April 2021*
+* 0.1 ✓ *8 April 2021*
+* 0.2 ✓ *8 April 2021*
+* 0.3 ✓ *8 April 2021*
+* 0.4 ✓ *8 April 2021*
+* 0.5 ✓ *8 April 2021*
+* 0.6 ✓ *8 April 2021*
 
-## [part 1 - react ](https://github.com/ajmlhkm/fullstackopen2021/tree/main/part1) 
-* exercise 1.1 ✓ *15 April 2021*
-* exercise 1.2 ✓ *15 April 2021*
-* exercise 1.3 ✓ *15 April 2021*
-* exercise 1.4 ✓ *15 April 2021*
-* exercise 1.5 ✓ *15 April 2021*
-* exercise 1.6 ✓ *20 April 2021*
-* exercise 1.7 ✓ *20 April 2021*
-* exercise 1.8 ✓ *20 April 2021*
-* exercise 1.9 ✓ *20 April 2021*
-* exercise 1.10 ✓ *20 April 2021*
-* exercise 1.11 ✓ *20 April 2021*
-* exercise 1.12 ✓ *20 April 2021*
-* exercise 1.13 ✓ *20 April 2021*
-* exercise 1.14 ✓ *20 April 2021*
+## [part 1 - react](https://github.com/ajmlhkm/fullstackopen2021/tree/main/part1) 
+* 1.1 ✓ *15 April 2021*
+* 1.2 ✓ *15 April 2021*
+* 1.3 ✓ *15 April 2021*
+* 1.4 ✓ *15 April 2021*
+* 1.5 ✓ *15 April 2021*
+* 1.6 ✓ *20 April 2021*
+* 1.7 ✓ *20 April 2021*
+* 1.8 ✓ *20 April 2021*
+* 1.9 ✓ *20 April 2021*
+* 1.10 ✓ *20 April 2021*
+* 1.11 ✓ *20 April 2021*
+* 1.12 ✓ *20 April 2021*
+* 1.13 ✓ *20 April 2021*
+* 1.14 ✓ *20 April 2021*
 
-## part 2
-* exercise 2.1 ✓ *21 April 2021*
-* exercise 2.2 ✓ *22 April 2021*
-* exercise 2.3 ✓ *22 April 2021*
-* exercise 2.4 ✓ *22 April 2021*
-* exercise 2.5 ✓ *22 April 2021*
-
+## [part 2 - communicating with server](https://github.com/ajmlhkm/fullstackopen2021/tree/main/part2) 
+* 2.1 ✓ *21 April 2021*
+* 2.2 ✓ *22 April 2021*
+* 2.3 ✓ *22 April 2021*
+* 2.4 ✓ *22 April 2021*
+* 2.5 ✓ *22 April 2021*
+* 2.6
+* 2.7
+* 2.8
+* 2.9
+* 2.10
+* 2.11
+* 2.12
+* 2.13
+* 2.14
+* 2.15
+* 2.16
+* 2.17
+* 2.18
+* 2.19
+* 2.20
 
 ## part 3
+* 3.1
+* 3.2
+* 3.3
+* 3.4
+* 3.5
+* 3.6 
+* 3.7
+* 3.8
+* 3.9
+* 3.10
+* 3.11
+* 3.12
+* 3.13
+* 3.14
+* 3.15
+* 3.16
+* 3.17
+* 3.18
+* 3.19
+* 3.20
+* 3.21
+* 3.22
 
 ## part 4
+* 4.1
+* 4.2
+* 4.3
+* 4.4
+* 4.5
+* 4.6
+* 4.7
+* 4.8
+* 4.9
+* 4.10
+* 4.11
+* 4.12
+* 4.13
+* 4.14
+* 4.15
+* 4.16
+* 4.17
+* 4.18
+* 4.19
+* 4.20
+* 4.21
+* 4.22
+* 4.23
+
 
 ## part 5
 

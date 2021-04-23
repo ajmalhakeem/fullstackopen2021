@@ -12,8 +12,11 @@ const App = () => {
     const personObj = {
       name: newName,
     }
-    setPersons(persons.concat(personObj))
-    setNewName('')
+    
+    persons.some(item => item.name === newName)
+    ? window.alert(`${newName} is already added to phonebook`)
+    : setPersons(persons.concat(personObj))
+      setNewName('')
   }
 
   const handleNoteChange = (event) => {
@@ -34,7 +37,7 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
       <ul>
-        {persons.map(person => <li>{person.name}</li>)}
+        {persons.map((person,key) => <li key={key}>{person.name}</li>)}
       </ul>
     </div>
   )

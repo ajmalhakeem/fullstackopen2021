@@ -1,7 +1,7 @@
 import React from 'react'
+import Weather from './Weather'
 
-const Results = ({filter, countries, setCountries}) => {
-
+const Results = ({filter, countries}) => {
   const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(filter))
   const countriesToShow = (filteredCountries.length <= 10)
   ? filteredCountries
@@ -23,8 +23,11 @@ const Results = ({filter, countries, setCountries}) => {
         {country.languages.map((language, idx) => (<li key={idx}>{language.name}</li>))}
       </ul>
       <img src={country.flag} alt=""/>
+      <Weather capital={country.capital}></Weather>
       </div>
-      ))}</div>
+      ))}
+      </div>
+
     )
   }
   return (

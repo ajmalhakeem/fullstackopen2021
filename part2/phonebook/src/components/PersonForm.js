@@ -1,9 +1,10 @@
 import React from 'react'
+import phoneService from '../services/phones'
 
 const PersonForm = ({personState, nameState, numState, changeName, changeNum, changePersons}) => {
 
     // on form submit, run this func
-    const addName = (event) => {
+    const addPerson = (event) => {
     event.preventDefault() //prevent default action 
 
     if (nameState === '' || numState === '') {
@@ -16,9 +17,19 @@ const PersonForm = ({personState, nameState, numState, changeName, changeNum, ch
       }
       
       //conditional operator
-      personState.some(item => item.name === nameState) //condition 
-      ? window.alert(`${nameState} is already added to phonebook`) //runs if true
-      : personState.some(item => item.number === numState) ? window.alert(`${numState} is already added to phonebook`): changePersons(personState.concat(personObj))
+      if (personState.some(item => item.name === nameState)) {
+        window.alert(`${nameState} is already added to phonebook`)
+      }
+      else {
+        if (personState.some(item => item.number === numState)) {
+          window.alert(`${numState} is already added to phonebook`)
+        } else {
+          phoneService.create(personObj)
+          .then(
+            changePersons(personState.concat(personObj))
+          )
+        }
+      }
   
       changeName('')
       changeNum('')
@@ -36,7 +47,7 @@ const PersonForm = ({personState, nameState, numState, changeName, changeNum, ch
     }
 
     return (
-    <form onSubmit={addName}>
+    <form onSubmit={addPerson}>
         <div>
           name: <input value={nameState} onChange={handleNoteChange} />
         </div>

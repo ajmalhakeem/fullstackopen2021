@@ -2,22 +2,22 @@ import React, {useEffect} from 'react'
 import Person from './Person'
 import phoneServices from '../services/phones'
 
-const Persons = ({personState, showAllState, filterState, changePerson}) => {
-    const peopleToShow = showAllState
-    ? personState
-		: personState.filter(person => person.name.includes(filterState))
+const Persons = ({persons, showAll, filter, setPersons}) => {
+    const peopleToShow = showAll
+    ? persons
+		: persons.filter(person => person.name.includes(filter))
 	
 		useEffect(() => {
 			phoneServices
 			.getAll()
 			.then(returnedPeople => {
-				changePerson(returnedPeople)
+				setPersons(returnedPeople)
 			})		
-		}, [changePerson])
+		}, [setPersons])
 
     return (
     <ul>
-        {peopleToShow.map((person) => <Person pid={person.id} name={person.name} number={person.number} changeState={changePerson}/>)}
+        {peopleToShow.map((person) => <Person pid={person.id} name={person.name} number={person.number} persons={persons} setPersons={setPersons}/>)}
     </ul>
     )
 }

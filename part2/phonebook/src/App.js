@@ -14,9 +14,9 @@ const App = () => {
 
   useEffect(() => {
     phoneService
-      .getAll()
-      .then(returnedPeople => {
-        setPersons(returnedPeople)
+      .getAll()	
+      .then(initialPeople => {
+        setPersons(initialPeople)
       })
   }, [])
 
@@ -25,9 +25,9 @@ const App = () => {
       <h2>Phonebook</h2>
       <Filter text={filter} setFilter={setFilter} setShowAll={setShowAll}/> 
       <h2>add a new</h2>
-      <PersonForm persons={persons} setPersons={setPersons} nameInput={newName} numInput={newNum} setNewName={setNewName} setNewNum={setNewNum} />
+      <PersonForm persons={persons} setPersons={setPersons} nameInput={newName} numInput={newNum} setInputName={setNewName} setInputNum={setNewNum} />
       <h2>Numbers</h2>
-      <Persons personState={persons} changePerson={setPersons} showAllState={showAll} filterState={filter}/>
+      <Persons persons={persons} setPersons={setPersons} showAll={showAll} filter={filter}/>
     </div>
   )
 }

@@ -15,7 +15,7 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
         name: nameInput,
         number: numInput
 			}
-			
+	
 
       //conditional operator
       if (persons.some(item => item.name === personObj.name)) {
@@ -30,11 +30,13 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
         if (persons.some(item => item.number === personObj.number)) {
           window.alert(`${numInput} is already added to phonebook`)
         } else {
-          phoneService.create(personObj)
-          .then(
-						// setPersons(persons.concat(personObj))
-						console.log(personObj)
-          )
+					phoneService
+						.create(personObj)
+						.then(results => {
+							setPersons(persons.concat(results))
+							console.log(results)
+						} 
+					)
         }
       }
   

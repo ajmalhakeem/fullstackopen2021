@@ -1,14 +1,14 @@
 import React from 'react'
 
 
-const Filter = ({text, changeState, changeShow}) => {
+const Filter = ({text, setFilter, setShowAll}) => {
     const handleFilterChange = (event) => {
-        changeState(event.target.value)
+        setFilter(event.target.value)
         if (event.target.value === '') 
         {
-          changeShow(true)
+          setShowAll(true)
         } else {
-          changeShow(false)
+          setShowAll(false)
         }
       }
 

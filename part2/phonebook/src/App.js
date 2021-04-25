@@ -23,9 +23,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter state={filter} changeState={setFilter} changeShow={setShowAll}/> 
+      <Filter text={filter} setFilter={setFilter} setShowAll={setShowAll}/> 
       <h2>add a new</h2>
-      <PersonForm personState={persons} changePersons={setPersons} nameState={newName} numState={newNum} changeName={setNewName} changeNum={setNewNum} />
+      <PersonForm persons={persons} setPersons={setPersons} nameInput={newName} numInput={newNum} setNewName={setNewName} setNewNum={setNewNum} />
       <h2>Numbers</h2>
       <Persons personState={persons} changePerson={setPersons} showAllState={showAll} filterState={filter}/>
     </div>

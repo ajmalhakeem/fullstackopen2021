@@ -1,58 +1,65 @@
 import React from 'react'
 import phoneService from '../services/phones'
 
-const PersonForm = ({personState, nameState, numState, changeName, changeNum, changePersons}) => {
+const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, setPersons}) => {
 
     // on form submit, run this func
     const addPerson = (event) => {
     event.preventDefault() //prevent default action 
 
-    if (nameState === '' || numState === '') {
+    if (nameInput === '' || numInput === '') {
       window.alert(`Please input a valid name and number.`)
     }
     else {
       const personObj = { //construct a new person object
-        name: nameState,
-        number: numState,
-      }
-      
+        name: nameInput,
+        number: numInput
+			}
+			
+
       //conditional operator
-      if (personState.some(item => item.name === nameState)) {
-        window.alert(`${nameState} is already added to phonebook`)
+      if (persons.some(item => item.name === personObj.name)) {
+				const res = window.confirm(`${nameInput} is already added to phonebook, are you sure you want to update the number?`)
+				// if (res) {					
+				// 	phoneService
+				// 		.update(item.id, personObj)
+				// 		.then(p)	
+				// }
       }
       else {
-        if (personState.some(item => item.number === numState)) {
-          window.alert(`${numState} is already added to phonebook`)
+        if (persons.some(item => item.number === personObj.number)) {
+          window.alert(`${numInput} is already added to phonebook`)
         } else {
           phoneService.create(personObj)
           .then(
-            changePersons(personState.concat(personObj))
+						// setPersons(persons.concat(personObj))
+						console.log(personObj)
           )
         }
       }
   
-      changeName('')
-      changeNum('')
+      setInputName('')
+      setInputNum('')
     }
     }
 
     //handles input changing for name
     const handleNoteChange = (event) => {
-        changeName(event.target.value)
+        setInputName(event.target.value)
     }
 
     //handles input changing for number
     const handleNumChange = (event) => {
-        changeNum(event.target.value)
+        setInputNum(event.target.value)
     }
 
     return (
     <form onSubmit={addPerson}>
         <div>
-          name: <input value={nameState} onChange={handleNoteChange} />
+          name: <input value={nameInput} onChange={handleNoteChange} />
         </div>
         <div>
-          number: <input value={numState} onChange={handleNumChange}/>
+          number: <input value={numInput} onChange={handleNumChange}/>
         </div>
         <div>
           <button type="submit">add</button>

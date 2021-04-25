@@ -13,7 +13,7 @@ const Persons = ({personState, showAllState, filterState, changePerson}) => {
 			.then(returnedPeople => {
 				changePerson(returnedPeople)
 			})		
-		}, [changePerson, personState])
+		}, [changePerson])
 
     return (
     <ul>

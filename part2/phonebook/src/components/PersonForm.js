@@ -1,7 +1,7 @@
 import React from 'react'
 import phoneService from '../services/phones'
 
-const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, setPersons}) => {
+const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, setPersons, setNotificationMsg, setError}) => {
 
     // on form submit, run this func
     const addPerson = (event) => {
@@ -47,6 +47,8 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
 						.create(newPerson)
 						.then(results => {
 							setPersons(persons.concat(results))
+              setNotificationMsg(`Success! Added ${newPerson.name}`)
+              setError(false)
 							console.log(results)
 						} 
 					)

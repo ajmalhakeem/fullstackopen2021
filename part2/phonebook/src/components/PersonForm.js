@@ -11,27 +11,40 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
       window.alert(`Please input a valid name and number.`)
     }
     else {
-      const personObj = { //construct a new person object
+      const newPerson = { //construct a new person object
         name: nameInput,
         number: numInput
 			}
 	
 
       //conditional operator
-      if (persons.some(item => item.name === personObj.name)) {
+      const match = persons.some(person => person.name === newPerson.name)
+      if (match) {
 				const res = window.confirm(`${nameInput} is already added to phonebook, are you sure you want to update the number?`)
-				// if (res) {					
-				// 	phoneService
-				// 		.update(item.id, personObj)
-				// 		.then(p)	
-				// }
+        phoneService.getAll().then(people => {
+          const targetPerson = people.filter((target) => {
+            return target.name === newPerson.name
+          })  
+          
+          //TODO STATE REFRESH
+          if (res) {					
+            phoneService
+              .update(targetPerson[0].id, newPerson)
+              .then(newPersons => {
+                setPersons(persons.map((person) => person.id !== newPersons.id ? person : newPerson))
+              })
+              .catch(error => {
+                console.log('fail')
+              })	
+          }
+        })
       }
       else {
-        if (persons.some(item => item.number === personObj.number)) {
+        if (persons.some(item => item.number === newPerson.number)) {
           window.alert(`${numInput} is already added to phonebook`)
         } else {
 					phoneService
-						.create(personObj)
+						.create(newPerson)
 						.then(results => {
 							setPersons(persons.concat(results))
 							console.log(results)

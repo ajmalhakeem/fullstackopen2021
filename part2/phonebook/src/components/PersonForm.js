@@ -26,16 +26,22 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
             return target.name === newPerson.name
           })  
           
-          //TODO STATE REFRESH
-          if (res) {					
-            phoneService
-              .update(targetPerson[0].id, newPerson)
-              .then(newPersons => {
-                setPersons(persons.map((person) => person.id !== newPersons.id ? person : newPerson))
-              })
-              .catch(error => {
-                console.log('fail')
-              })	
+          if (targetPerson.length === 0) 
+          {
+            setNotificationMsg("Error. Person has been deleted from the database")
+            setError(true)
+          }
+          else {
+            if (res) {					
+              phoneService
+                .update(targetPerson[0].id, newPerson)
+                .then(newPersons => {
+                  setPersons(persons.map((person) => person.id !== newPersons.id ? person : newPerson))
+                })
+                .catch(error => {
+                  console.log('fail')
+                })	
+            }
           }
         })
       }

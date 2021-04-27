@@ -5,7 +5,6 @@ import Persons from './components/Persons'
 import phoneService from './services/phones'
 import Notification from './components/Notification'
 
-
 const App = () => {
   const [ persons, setPersons ] = useState([])
   const [ newName, setNewName ] = useState('')

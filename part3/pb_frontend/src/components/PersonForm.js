@@ -46,19 +46,15 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
         })
       }
       else {
-        if (persons.some(item => item.number === newPerson.number)) {
-          window.alert(`${numInput} is already added to phonebook`)
-        } else {
-					phoneService
-						.create(newPerson)
-						.then(results => {
-							setPersons(persons.concat(results))
-              setNotificationMsg(`Success! Added ${newPerson.name}`)
-              setError(false)
-							console.log(results)
-						} 
-					)
-        }
+        phoneService
+          .create(newPerson)
+          .then(results => {
+            setPersons(persons.concat(results))
+            setNotificationMsg(`Success! Added ${newPerson.name}`)
+            setError(false)
+            console.log(results)
+          } 
+        )
       }
   
       setInputName('')

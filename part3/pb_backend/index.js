@@ -1,7 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
 var morgan = require('morgan')
+const Person = require('./models/person')
+const PORT = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
@@ -12,51 +15,20 @@ morgan.token('body' , (req,res) =>
 
 app.use(morgan(':method :url :status :response-time ms - :body'))
 
-let persons =  [
-    {
-      name: "Eren Jaeger",
-      number: "30291031",
-      "id": 1
-    },
-    {
-      name: "Mikasa Ackermann",
-      number: "39-44-5323523",
-      "id": 2
-    },
-    {
-      name: "Levi Ackermann",
-      number: "12-43-234345",
-      "id": 3
-    },
-    {
-      name: "Probably Embed",
-      number: "2310932103120",
-      "id": 4
-    },
-    {
-      name: "Izzy",
-      number: "2103910930",
-      "id": 5
-    }
-  ]
-
 app.get('/', (request, response) => {
     response.send('<h1>Hello world!</h1>')
 })
 
 app.get('/api/persons', (request, response) => {
-    response.json(persons)
+    Person.find({}).then(persons => {
+        response.json(persons)
+    })
 })
 
 app.get('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    const person = persons.find(person => person.id === id)
-
-    if (person) {
+    Person.findById(request.params.id).then(person => {
         response.json(person)
-    } else {
-        response.status(404).end()
-    }
+    })
 })
 
 app.get('/info', (request, response) => {
@@ -76,27 +48,21 @@ const generateId = () => {
 app.post('/api/persons', (request, response) => {
     const body = request.body
 
-    if (!body.name || !body.number) {
+    if (!body.name === undefined) {
         return response.status(400).json({
             error:  'field missing'
         })
     }
 
-    if (persons.some(person => person.name === body.name)) {
-        return response.status(400).json({
-            error: 'name exists on db'
-        })
-    }
-
-    const person = {
+    const person = new Person({
         name : body.name,
         number : body.number,
         id : generateId()
-    }
+    })
 
-    persons = persons.concat(person)
-
-    response.json(person)
+    person.save().then(savedPerson => {
+        response.json(savedPerson)
+    })
 })
 
 
@@ -108,7 +74,6 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 
-const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })

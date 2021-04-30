@@ -66,10 +66,10 @@ Each **part** submission has directories that contains: each exercise submission
 * 3.16 ✓ *30 April 2021* 
 * 3.17 ✓ *30 April 2021* 
 * 3.18 ✓ *30 April 2021* 
-* 3.19
-* 3.20
-* 3.21
-* 3.22
+* 3.19 ✓ *30 April 2021*  *IMPORTED MODULE BUT DOESN'T WORK*
+* 3.20 ✓ *30 April 2021* 
+* 3.21 ✓ *30 April 2021*  *HEROKU DOESN'T WORK BECAUSE OF GIT DIR STRUCTURE*
+* 3.22 ✓ *30 April 2021* 
 
 ## part 4
 * 4.1

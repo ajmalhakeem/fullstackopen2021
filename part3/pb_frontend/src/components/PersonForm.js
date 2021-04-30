@@ -55,6 +55,11 @@ const PersonForm = ({persons, nameInput, numInput, setInputName, setInputNum, se
             console.log(results)
           } 
         )
+        .catch(error => {
+          setNotificationMsg(error.response.data.error)
+          setError(true)
+          console.log(error.response.data.error)
+        })
       }
   
       setInputName('')

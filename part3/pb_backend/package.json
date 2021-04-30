@@ -9,8 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../pb_frontend/ && npm run build --prod && cp -r build ../pb_backend",
     "deploy": "git push heroku main",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
-    "logs:prod": "heroku logs --tail"
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@types/mongoose-unique-validator": "^1.0.4",
+    "eslint": "^7.25.0",
     "nodemon": "^2.0.7"
   },
   "engines": {

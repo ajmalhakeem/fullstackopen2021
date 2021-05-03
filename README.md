@@ -72,9 +72,9 @@ Each **part** submission has directories that contains: each exercise submission
 * 3.22 ✓ *30 April 2021* 
 
 ## part 4
-* 4.1
-* 4.2
-* 4.3
+* 4.1 ✓ *3 May 2021* 
+* 4.2 ✓ *3 May 2021* 
+* 4.3 
 * 4.4
 * 4.5
 * 4.6
